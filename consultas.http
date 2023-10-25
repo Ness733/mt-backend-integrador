@@ -1,0 +1,34 @@
+### Obtener lista de usuarios
+GET http://localhost:3000/usuarios/
+
+### Obtener lista de productos
+GET http://localhost:3000/productos/
+
+### POST Validación JWT
+POST http://localhost:3000/auth/
+Content-Type: application/json
+
+{
+    "username": "nrosales",
+    "password": "nrosales90"
+}
+
+### Agregado de un producto nuevo, el body lleva el json con el objeto
+POST http://localhost:3000/productos
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoibnJvc2FsZXMiLCJ1c2VyTGV2ZWwiOjMsImV4cCI6MTY5ODI3MDYyNjcwMiwiaWF0IjoxNjk4MjcwNTY2fQ.g6Ztne4bWF7IKODsFnwCgRUB6aKi2P5Plhd-MahJ7po
+
+
+{
+    "id_product_cat": 1,
+    "description": "Cable Ethernet 4mts Gris",
+    "price_list": 150.50,
+    "id_provider": 1,
+    "price_public": 250.50,
+    "stock": 10
+}
+
+### Eliminar Producto por ID, Validación Administrador
+DELETE http://localhost:3000/productos/4
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoibnJvc2FsZXMiLCJ1c2VyTGV2ZWwiOjMsImV4cCI6MTY5ODI3MTM1MTMwOSwiaWF0IjoxNjk4MjcxMjMxfQ.LunirtC8egNp4bqr0fq9c7N2lhUvWHjBqoPOpwNti5I
