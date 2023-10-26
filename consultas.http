@@ -9,14 +9,23 @@ POST http://localhost:3000/auth/
 Content-Type: application/json
 
 {
-    "username": "nrosales",
-    "password": "nrosales90"
+    "username": "ProveedorPerez",
+    "password": "rperez24"
+}
+
+### Patch Editar usuario
+PATCH http://localhost:3000/usuarios/2
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsInVzZXJuYW1lIjoiUHJvdmVlZG9yUGVyZXoiLCJ1c2VyTGV2ZWwiOjIsImV4cCI6MTY5ODMzNjkyNzMxMSwiaWF0IjoxNjk4MzM2Njg3fQ.vrFnleCQYM_kOHdSBNhXYtfhdEFRiHRdw2kY1cNtjVg
+
+{
+    "email": "ppascalNuevo2@gmail.com"
 }
 
 ### Agregado de un producto nuevo, el body lleva el json con el objeto
 POST http://localhost:3000/productos
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoibnJvc2FsZXMiLCJ1c2VyTGV2ZWwiOjMsImV4cCI6MTY5ODI3MDYyNjcwMiwiaWF0IjoxNjk4MjcwNTY2fQ.g6Ztne4bWF7IKODsFnwCgRUB6aKi2P5Plhd-MahJ7po
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoibnJvc2FsZXMiLCJ1c2VyTGV2ZWwiOjMsImV4cCI6MTY5ODMzNjE4MDQzOSwiaWF0IjoxNjk4MzM1OTQwfQ.tUVhpOxwDZA_ygqmmIAJysFLR4Acc8xIJm4b7Qoe88w
 
 
 {
@@ -29,6 +38,6 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuY
 }
 
 ### Eliminar Producto por ID, Validación Administrador
-DELETE http://localhost:3000/productos/4
+DELETE http://localhost:3000/productos/9
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoibnJvc2FsZXMiLCJ1c2VyTGV2ZWwiOjMsImV4cCI6MTY5ODI3MTM1MTMwOSwiaWF0IjoxNjk4MjcxMjMxfQ.LunirtC8egNp4bqr0fq9c7N2lhUvWHjBqoPOpwNti5I
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoibnJvc2FsZXMiLCJ1c2VyTGV2ZWwiOjMsImV4cCI6MTY5ODMzNjE4MDQzOSwiaWF0IjoxNjk4MzM1OTQwfQ.tUVhpOxwDZA_ygqmmIAJysFLR4Acc8xIJm4b7Qoe88w
