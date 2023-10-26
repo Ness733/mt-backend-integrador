@@ -7,7 +7,7 @@ const Cart = db.define(
 		id_user: { type: DataTypes.INTEGER },
 	},
 	{
-		tableName: "carts",
+		tableName: "cart",
 		timestamps: false,
 	}
 );

@@ -9,9 +9,19 @@ POST http://localhost:3000/auth/
 Content-Type: application/json
 
 {
-    "username": "ProveedorPerez",
-    "password": "rperez24"
+    "username": "ppascal",
+    "password": "ppascal18"
 }
+
+### Post Nuevo Carrito
+POST http://localhost:3000/carro
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsInVzZXJuYW1lIjoicHBhc2NhbCIsInVzZXJMZXZlbCI6MSwiZXhwIjoxNjk4MzQxNjA1NDkyLCJpYXQiOjE2OTgzNDEzNjV9.h4WF8xhP7zrWxdlyFOzL2j3m9d5sk7m7zs42OM29cso
+
+{
+    "id_user": 2
+}
+
 
 ### Patch Editar usuario
 PATCH http://localhost:3000/usuarios/2

@@ -14,9 +14,9 @@ export async function getAllProducts(req, res) {
 export async function getOneProduct(req, res) {
 	try {
 		let productId = parseInt(req.params.id);
-		let productoEncontrado = await Product.findByPk(productId);
+		let productFound = await Product.findByPk(productId);
 
-		res.status(200).json(productoEncontrado);
+		res.status(200).json(productFound);
 	} catch (error) {
 		res.status(204).json({ message: error });
 	}
@@ -67,7 +67,7 @@ export async function editProduct(req, res) {
 
 		await productUpdate.update(req.body);
 
-		res.status(200).json({
+		res.status(201).json({
 			message: `Producto "${productUpdate[0].description}" actualizado.`,
 		});
 	} catch (error) {
