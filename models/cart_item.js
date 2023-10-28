@@ -1,7 +1,7 @@
 import db from "../db/connection.js";
 import { DataTypes } from "sequelize";
 
-const ProductCategory = db.define(
+const CartItem = db.define(
 	"cart_item",
 	{
 		id_product: { type: DataTypes.INTEGER },
@@ -9,9 +9,9 @@ const ProductCategory = db.define(
 		id_cart: { type: DataTypes.INTEGER },
 	},
 	{
-		tableName: "cart_items",
+		tableName: "cart_item",
 		timestamps: false,
 	}
 );
 
-export default ProductCategory;
+export default CartItem;

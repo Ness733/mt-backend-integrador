@@ -22,6 +22,33 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsInVzZXJuY
     "id_user": 2
 }
 
+### Post Nuevo Item de Carrito
+POST http://localhost:3000/item
+Content-Type: application/json
+
+{
+    "id_product": 2,
+    "qty": 2,
+    "id_cart": 6
+}
+
+### Get Items carrito
+GET http://localhost:3000/item/
+
+### Get Items carrito por ID
+GET http://localhost:3000/item/1
+
+### Editar Item de Carrito
+PATCH http://localhost:3000/item/1
+Content-Type: application/json
+
+{
+    "qty": 10
+}
+
+### Eliminar Item de Carrito
+DELETE http://localhost:3000/item/2
+Content-Type: application/json
 
 ### Patch Editar usuario
 PATCH http://localhost:3000/usuarios/2

@@ -1,9 +1,10 @@
-import User from "../models/user.js";
+// import User from "../models/user.js";
+import { Users } from "../models/index.js";
 
 // Get Requests ////////////////////////////////////////////
 export async function getAllUsers(req, res) {
 	try {
-		let allUsers = await User.findAll();
+		let allUsers = await Users.findAll();
 
 		res.status(200).json(allUsers);
 	} catch (error) {
@@ -14,7 +15,7 @@ export async function getAllUsers(req, res) {
 export async function getOneUser(req, res) {
 	try {
 		let userId = parseInt(req.params.id);
-		let userFound = await User.findByPk(userId);
+		let userFound = await Users.findByPk(userId);
 
 		req.status(200).json(userFound);
 	} catch (error) {
@@ -26,7 +27,7 @@ export async function getOneUser(req, res) {
 
 export async function saveUser(req, res) {
 	try {
-		const newUser = new User(req.body);
+		const newUser = new Users(req.body);
 		await newUser.save();
 
 		res.status(200).json({ message: "success" });
@@ -38,7 +39,7 @@ export async function saveUser(req, res) {
 export async function editUser(req, res) {
 	try {
 		let userId = parseInt(req.params.id);
-		let userUpdate = await User.findByPk(userId);
+		let userUpdate = await Users.findByPk(userId);
 
 		// Validación de permisos para modificar usuario.
 		// Solamente el usuario puede editar su propia información.
@@ -67,7 +68,7 @@ export async function editUser(req, res) {
 export async function deleteUser(req, res) {
 	try {
 		let userId = parseInt(req.params.id);
-		let userDelete = await User.findByPk(userId);
+		let userDelete = await Users.findByPk(userId);
 
 		if (req.userLevel !== 3 || req.username !== userDelete.username) {
 			return res.status(401).json({

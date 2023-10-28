@@ -1,9 +1,11 @@
 import Product from "../models/product.js";
+import ProductCategory from "../models/product_category.js";
+// import { Products } from "../models/index.js";
 
 // Get Requests ///////////////////////////////////////////
 export async function getAllProducts(req, res) {
 	try {
-		let allProducts = await Product.findAll();
+		let allProducts = await Product.findAll({ include: ProductCategory });
 
 		res.status(200).json(allProducts);
 	} catch (error) {

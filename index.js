@@ -8,6 +8,7 @@ import authentication from "./middleware/userAuthentication.js";
 import productsRouter from "./routes/productsRouter.js";
 import usersRouter from "./routes/usersRouter.js";
 import cartRouter from "./routes/cartRouter.js";
+import cartItemRouter from "./routes/cartItemRouter.js";
 
 const app = express();
 const exposedPort = 3000;
@@ -23,6 +24,7 @@ app.use(makeBody);
 app.use("/", productsRouter);
 app.use("/", usersRouter);
 app.use("/", cartRouter);
+app.use("/", cartItemRouter);
 
 // Endpoint validación logueo
 app.post("/auth", authentication);
