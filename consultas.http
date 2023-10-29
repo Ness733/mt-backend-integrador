@@ -177,3 +177,34 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuY
 
 /////////////////////////////////////////////////////////////////////
 
+### Provider Controller
+
+### GET Providers
+GET http://localhost:3000/proveedores/
+
+### GET Provider por ID
+GET http://localhost:3000/proveedores/1
+
+### POST Provider
+POST http://localhost:3000/proveedores
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoibnJvc2FsZXMiLCJ1c2VyTGV2ZWwiOjMsImV4cCI6MTY5ODYyMjg5Nzg0MywiaWF0IjoxNjk4NjIyNjU3fQ.XSLkNZXtILNH8HlEKUqUaMhjZli2xLvdpPIauSLKxto
+
+{
+    "id_user": 1,
+    "cuit": 30374431208
+}
+
+### PATCH Provider
+PATCH http://localhost:3000/proveedores/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoibnJvc2FsZXMiLCJ1c2VyTGV2ZWwiOjMsImV4cCI6MTY5ODYyMzM2MzQzNywiaWF0IjoxNjk4NjIzMTIzfQ.W0vWiIw9JfIXk3KqtWQc02DDSykDkT5dF6tnpIP1LHo
+
+{
+    "id_user": 3
+}
+
+### DELETE Provider
+DELETE http://localhost:3000/proveedores/2
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoibnJvc2FsZXMiLCJ1c2VyTGV2ZWwiOjMsImV4cCI6MTY5ODYyMjg5Nzg0MywiaWF0IjoxNjk4NjIyNjU3fQ.XSLkNZXtILNH8HlEKUqUaMhjZli2xLvdpPIauSLKxto

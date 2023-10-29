@@ -1,16 +1,16 @@
 import db from "../db/connection.js";
 import { DataTypes } from "sequelize";
 
-const Prodiver = db.define(
+const Provider = db.define(
 	"provider",
 	{
 		id_user: { type: DataTypes.INTEGER },
 		cuit: { type: DataTypes.INTEGER },
 	},
 	{
-		tableName: "providers",
+		tableName: "provider",
 		timestamps: false,
 	}
 );
 
-export default Prodiver;
+export default Provider;

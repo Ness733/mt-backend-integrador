@@ -5,11 +5,13 @@ import express from "express";
 import makeBody from "./middleware/body.js";
 import authentication from "./middleware/userAuthentication.js";
 
+// Routers
 import productsRouter from "./routes/productsRouter.js";
 import usersRouter from "./routes/usersRouter.js";
 import cartRouter from "./routes/cartRouter.js";
 import cartItemRouter from "./routes/cartItemRouter.js";
 import categoriesRouter from "./routes/productCategoryRouter.js";
+import providerRouter from "./routes/providerRouter.js";
 
 const app = express();
 const exposedPort = 3000;
@@ -27,6 +29,7 @@ app.use("/", usersRouter);
 app.use("/", cartRouter);
 app.use("/", cartItemRouter);
 app.use("/", categoriesRouter);
+app.use("/", providerRouter);
 
 // Endpoint validación logueo
 app.post("/auth", authentication);
