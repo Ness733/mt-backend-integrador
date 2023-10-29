@@ -51,7 +51,7 @@ export async function saveProduct(req, res) {
 export async function editProduct(req, res) {
 	const userLevel = req.userLevel;
 
-	if (userLevel !== 3 || userLevel !== 2) {
+	if (userLevel !== 2) {
 		res.status(401).json({
 			message: "Se requieren permisos de administrador.",
 		});
@@ -70,7 +70,7 @@ export async function editProduct(req, res) {
 		await productUpdate.update(req.body);
 
 		res.status(201).json({
-			message: `Producto "${productUpdate[0].description}" actualizado.`,
+			message: `Producto '${productUpdate.dataValues.description}' actualizado.`,
 		});
 	} catch (error) {
 		res.status(204).json({ message: error });

@@ -3,8 +3,8 @@ POST http://localhost:3000/auth/
 Content-Type: application/json
 
 {
-    "username": "nusuario",
-    "password": "nusuario90"
+    "username": "ProveedorPerez",
+    "password": "rperez24"
 }
 
 /////////////////////////////////////////////////////////////////////
@@ -43,7 +43,12 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjQsInVzZXJuY
 /////////////////////////////////////////////////////////////////////
 
 ### Products Controller
+
+### GET Products
 GET http://localhost:3000/productos/
+
+### GET Product ID
+GET http://localhost:3000/productos/1
 
 ### Agregado de un producto nuevo, el body lleva el json con el objeto
 POST http://localhost:3000/productos
@@ -57,6 +62,16 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuY
     "id_provider": 1,
     "price_public": 250.50,
     "stock": 10
+}
+
+### PATCH Product
+PATCH http://localhost:3000/productos/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsInVzZXJuYW1lIjoiUHJvdmVlZG9yUGVyZXoiLCJ1c2VyTGV2ZWwiOjIsImV4cCI6MTY5ODYxNjE4NDkzNywiaWF0IjoxNjk4NjE1OTQ0fQ.O8Ci4cA8uSUzDneqe6jBvVOPeXAGKhNEWHQg88YCYKE
+
+{
+    "price_list": 180.50,
+    "price_public": 280.50
 }
 
 ### Eliminar Producto por ID, Validación Administrador
