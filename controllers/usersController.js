@@ -69,8 +69,10 @@ export async function deleteUser(req, res) {
 	try {
 		let userId = parseInt(req.params.id);
 		let userDelete = await Users.findByPk(userId);
+		console.log(userDelete.dataValues.username);
+		console.log(req.username);
 
-		if (req.userLevel !== 3 || req.username !== userDelete.username) {
+		if (req.username !== userDelete.dataValues.username) {
 			return res.status(401).json({
 				message: "No tiene permisos para eliminar este usuario.",
 			});

@@ -3,13 +3,14 @@ POST http://localhost:3000/auth/
 Content-Type: application/json
 
 {
-    "username": "ppascal",
-    "password": "ppascal18"
+    "username": "nusuario",
+    "password": "nusuario90"
 }
 
 /////////////////////////////////////////////////////////////////////
+### Users Controller
 
-### GET Users Controller
+### GET Users
 GET http://localhost:3000/usuarios/
 
 ### PATCH Editar usuario
@@ -20,6 +21,24 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsInVzZXJuY
 {
     "email": "ppascalNuevo2@gmail.com"
 }
+
+### POST Users
+POST http://localhost:3000/usuarios/
+Content-Type: application/json
+
+{
+    "first_name": "Nuevo",
+    "last_name": "Usuario",
+    "username": "nusuario",
+    "email": "nusuario@gmail.com",
+    "password": "nusuario90",
+    "id_user_cat": 1
+}
+
+### DELETE User
+DELETE http://localhost:3000/usuarios/4
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjQsInVzZXJuYW1lIjoibnVzdWFyaW8iLCJ1c2VyTGV2ZWwiOjEsImV4cCI6MTY5ODYxNTQwNTUwMywiaWF0IjoxNjk4NjE1MTY1fQ.6A8HdGkMg63l65_NmQCjbTuhPdqpDDFtsTt-lRWUfpA
 
 /////////////////////////////////////////////////////////////////////
 
