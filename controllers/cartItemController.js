@@ -66,7 +66,7 @@ export async function deleteCartItem(req, res) {
 	let cartItemIdProduct = await Products.findByPk(cartDelete.id_product);
 
 	try {
-		cartDelete.destroy();
+		await cartDelete.destroy();
 		res.status(201).json({
 			message: `Item ${cartItemIdProduct.description} eliminado.`,
 		});

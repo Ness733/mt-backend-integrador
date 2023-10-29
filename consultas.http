@@ -7,6 +7,15 @@ Content-Type: application/json
     "password": "rperez24"
 }
 
+### POST Validación JWT
+POST http://localhost:3000/auth/
+Content-Type: application/json
+
+{
+    "username": "nrosales",
+    "password": "nrosales90"
+}
+
 /////////////////////////////////////////////////////////////////////
 ### Users Controller
 
@@ -134,12 +143,37 @@ Content-Type: application/json
 
 /////////////////////////////////////////////////////////////////////
 
+### Product Category Controller
 
+### GET Product Categories
+GET http://localhost:3000/categories/
 
+### GET Product Category por ID
+GET http://localhost:3000/categories/1
 
+### POST Product Category
+POST http://localhost:3000/categories/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsInVzZXJuYW1lIjoiUHJvdmVlZG9yUGVyZXoiLCJ1c2VyTGV2ZWwiOjIsImV4cCI6MTY5ODYxODg2MTU4MywiaWF0IjoxNjk4NjE4NjIxfQ.6UBEhKTGxbj2YG_UwhHr5qwBNHhbg10QCpKPJTiFkLQ
 
+{
+    "category": "Adaptadores HDMI",
+    "description": "HDMI/VGA, HDMI HUBs, HDMI/Display"
+}
 
+### PATCH Product Category
+PATCH http://localhost:3000/categories/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsInVzZXJuYW1lIjoiUHJvdmVlZG9yUGVyZXoiLCJ1c2VyTGV2ZWwiOjIsImV4cCI6MTY5ODYxOTE5NDg4NSwiaWF0IjoxNjk4NjE4OTU0fQ.UoWWpzHNv6yekiWEs-K2mss_Kkr0TGukE3-HeqE2CmQ
 
+{
+    "category": "Cables/Extensiones"
+}
 
+### DELETE Product Category
+DELETE http://localhost:3000/categories/2
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoibnJvc2FsZXMiLCJ1c2VyTGV2ZWwiOjMsImV4cCI6MTY5ODYxOTMwMzc4NSwiaWF0IjoxNjk4NjE5MDYzfQ.YEX4em0wRJbwBSJmy65w9AwFytlLPyJIaMaPfS1ReA4
 
+/////////////////////////////////////////////////////////////////////
 

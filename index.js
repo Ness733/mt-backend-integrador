@@ -9,6 +9,7 @@ import productsRouter from "./routes/productsRouter.js";
 import usersRouter from "./routes/usersRouter.js";
 import cartRouter from "./routes/cartRouter.js";
 import cartItemRouter from "./routes/cartItemRouter.js";
+import categoriesRouter from "./routes/productCategoryRouter.js";
 
 const app = express();
 const exposedPort = 3000;
@@ -25,6 +26,7 @@ app.use("/", productsRouter);
 app.use("/", usersRouter);
 app.use("/", cartRouter);
 app.use("/", cartItemRouter);
+app.use("/", categoriesRouter);
 
 // Endpoint validación logueo
 app.post("/auth", authentication);
