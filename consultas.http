@@ -1,9 +1,3 @@
-### Obtener lista de usuarios
-GET http://localhost:3000/usuarios/
-
-### Obtener lista de productos
-GET http://localhost:3000/productos/
-
 ### POST Validación JWT
 POST http://localhost:3000/auth/
 Content-Type: application/json
@@ -13,44 +7,12 @@ Content-Type: application/json
     "password": "ppascal18"
 }
 
-### Post Nuevo Carrito
-POST http://localhost:3000/carro
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsInVzZXJuYW1lIjoicHBhc2NhbCIsInVzZXJMZXZlbCI6MSwiZXhwIjoxNjk4MzQxNjA1NDkyLCJpYXQiOjE2OTgzNDEzNjV9.h4WF8xhP7zrWxdlyFOzL2j3m9d5sk7m7zs42OM29cso
+/////////////////////////////////////////////////////////////////////
 
-{
-    "id_user": 2
-}
+### GET Users Controller
+GET http://localhost:3000/usuarios/
 
-### Post Nuevo Item de Carrito
-POST http://localhost:3000/item
-Content-Type: application/json
-
-{
-    "id_product": 2,
-    "qty": 2,
-    "id_cart": 6
-}
-
-### Get Items carrito
-GET http://localhost:3000/item/
-
-### Get Items carrito por ID
-GET http://localhost:3000/item/1
-
-### Editar Item de Carrito
-PATCH http://localhost:3000/item/1
-Content-Type: application/json
-
-{
-    "qty": 10
-}
-
-### Eliminar Item de Carrito
-DELETE http://localhost:3000/item/2
-Content-Type: application/json
-
-### Patch Editar usuario
+### PATCH Editar usuario
 PATCH http://localhost:3000/usuarios/2
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsInVzZXJuYW1lIjoiUHJvdmVlZG9yUGVyZXoiLCJ1c2VyTGV2ZWwiOjIsImV4cCI6MTY5ODMzNjkyNzMxMSwiaWF0IjoxNjk4MzM2Njg3fQ.vrFnleCQYM_kOHdSBNhXYtfhdEFRiHRdw2kY1cNtjVg
@@ -59,11 +21,15 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsInVzZXJuY
     "email": "ppascalNuevo2@gmail.com"
 }
 
+/////////////////////////////////////////////////////////////////////
+
+### Products Controller
+GET http://localhost:3000/productos/
+
 ### Agregado de un producto nuevo, el body lleva el json con el objeto
 POST http://localhost:3000/productos
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoibnJvc2FsZXMiLCJ1c2VyTGV2ZWwiOjMsImV4cCI6MTY5ODMzNjE4MDQzOSwiaWF0IjoxNjk4MzM1OTQwfQ.tUVhpOxwDZA_ygqmmIAJysFLR4Acc8xIJm4b7Qoe88w
-
 
 {
     "id_product_cat": 1,
@@ -78,3 +44,68 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuY
 DELETE http://localhost:3000/productos/9
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoibnJvc2FsZXMiLCJ1c2VyTGV2ZWwiOjMsImV4cCI6MTY5ODMzNjE4MDQzOSwiaWF0IjoxNjk4MzM1OTQwfQ.tUVhpOxwDZA_ygqmmIAJysFLR4Acc8xIJm4b7Qoe88w
+
+
+/////////////////////////////////////////////////////////////////////
+
+### Cart Controller
+
+### Obtener lista de carritos
+GET http://localhost:3000/carro/
+
+### Obtener carrito por ID
+GET http://localhost:3000/carro/6
+
+### Post Nuevo Carrito
+POST http://localhost:3000/carro
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsInVzZXJuYW1lIjoicHBhc2NhbCIsInVzZXJMZXZlbCI6MSwiZXhwIjoxNjk4MzQxNjA1NDkyLCJpYXQiOjE2OTgzNDEzNjV9.h4WF8xhP7zrWxdlyFOzL2j3m9d5sk7m7zs42OM29cso
+
+{
+    "id_user": 2
+}
+
+
+/////////////////////////////////////////////////////////////////////
+
+### Cart Item Controller
+
+### Get Items carrito
+GET http://localhost:3000/item/
+
+### Get Items carrito por ID
+GET http://localhost:3000/item/1
+
+### Post Nuevo Item de Carrito
+POST http://localhost:3000/item
+Content-Type: application/json
+
+{
+    "id_product": 2,
+    "qty": 2,
+    "id_cart": 6
+}
+
+### Editar Item de Carrito
+PATCH http://localhost:3000/item/1
+Content-Type: application/json
+
+{
+    "qty": 5
+}
+
+### Eliminar Item de Carrito
+DELETE http://localhost:3000/item/2
+Content-Type: application/json
+
+/////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+

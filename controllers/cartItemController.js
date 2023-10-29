@@ -1,16 +1,12 @@
 // import CartItem from "../models/cart_item.js";
 // import Products from "../models/product.js";
-import { CartItem } from "../models/index.js";
-import { Products } from "../models/index.js";
+import { CartItem, Products } from "../models/index.js";
 
 // Get Requests ///////////////////////////////////////////
 export async function getAllCartItems(req, res) {
 	try {
 		let allCartItems = await CartItem.findAll({
-			include: {
-				model: Products,
-				as: "product",
-			},
+			include: Products,
 		});
 		res.status(200).json(allCartItems);
 	} catch (error) {
@@ -38,7 +34,7 @@ export async function saveCartItem(req, res) {
 		await newCartItem.save();
 
 		res.status(201).json({
-			message: `Se agregó el item al carrito ${newCartItem.id_cart} de ${req.username}`,
+			message: `Se agregó el item al carrito nº ${newCartItem.id_cart} de ${req.username}`,
 		});
 	} catch (error) {
 		res.status(204).json({ message: error });
@@ -49,13 +45,14 @@ export async function editCartItem(req, res) {
 	let cartItemId = parseInt(req.params.id);
 	try {
 		let cartUpdate = await CartItem.findByPk(cartItemId);
+		let cartItemIdProduct = await Products.findByPk(cartUpdate.id_product);
 		if (!cartUpdate) {
 			return res.status(204).json({ message: "El item no existe." });
 		}
 		await cartUpdate.update(req.body);
 
 		res.status(201).json({
-			message: `Item ID:${cartUpdate} actualizado.`,
+			message: `Item '${cartItemIdProduct.description}' actualizado.`,
 		});
 	} catch (error) {
 		res.status(204).json({ message: error });
@@ -66,11 +63,12 @@ export async function editCartItem(req, res) {
 export async function deleteCartItem(req, res) {
 	let cartItemId = parseInt(req.params.id);
 	let cartDelete = await CartItem.findByPk(cartItemId);
+	let cartItemIdProduct = await Products.findByPk(cartDelete.id_product);
 
 	try {
 		cartDelete.destroy();
 		res.status(201).json({
-			message: `Item ${cartDelete.id} eliminado.`,
+			message: `Item ${cartItemIdProduct.description} eliminado.`,
 		});
 	} catch (error) {
 		res.status(204).json({ message: error });

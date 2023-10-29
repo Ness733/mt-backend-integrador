@@ -1,9 +1,26 @@
-import { Cart } from "../models/index.js";
+import { Cart, CartItem, Users, Products } from "../models/index.js";
 
 // Get Requests ///////////////////////////////////////////
 export async function getAllCarts(req, res) {
+	// let getProducts = await CartItem.findAll();
+
 	try {
-		let allCarts = await Cart.findAll();
+		let allCarts = await Cart.findAll({
+			include: [
+				{
+					model: CartItem,
+					include: [
+						{
+							model: Products,
+						},
+					],
+				},
+				{
+					model: Users,
+					attributes: ["username", "email"],
+				},
+			],
+		});
 		res.status(200).json(allCarts);
 	} catch (error) {
 		res.status(204).json({ message: error });
@@ -13,7 +30,23 @@ export async function getAllCarts(req, res) {
 export async function getOneCart(req, res) {
 	try {
 		let cartId = parseInt(req.params.id);
-		let cartFound = await Cart.findByPk(cartId);
+		let cartFound = await Cart.findAll({
+			where: { id: cartId },
+			include: [
+				{
+					model: CartItem,
+					include: [
+						{
+							model: Products,
+						},
+					],
+				},
+				{
+					model: Users,
+					attributes: ["username", "email"],
+				},
+			],
+		});
 
 		res.status(200).json(cartFound);
 	} catch (error) {
