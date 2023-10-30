@@ -1,5 +1,5 @@
 import express from "express";
-// import autenticacionDeToken from "../middleware/tokenAuthentication.js";
+import autenticacionDeToken from "../middleware/tokenAuthentication.js";
 
 const cartItemRouter = express.Router();
 
@@ -13,7 +13,7 @@ import {
 
 cartItemRouter.get("/item", getAllCartItems);
 cartItemRouter.get("/item/:id", getOneCartItem);
-cartItemRouter.post("/item", saveCartItem);
+cartItemRouter.post("/item", autenticacionDeToken, saveCartItem);
 cartItemRouter.patch("/item/:id", editCartItem);
 cartItemRouter.delete("/item/:id", deleteCartItem);
 

@@ -21,8 +21,8 @@ POST http://localhost:3000/auth/
 Content-Type: application/json
 
 {
-    "username": "ppascal",
-    "password": "ppascal18"
+    "username": "nusuario",
+    "password": "nusuario90"
 }
 
 /////////////////////////////////////////////////////////////////////
@@ -128,14 +128,14 @@ GET http://localhost:3000/item/
 ### Get Items carrito por ID
 GET http://localhost:3000/item/1
 
-### Post Nuevo Item de Carrito
+### Post Nuevo Item de Carrito // Requiere Usuario
 POST http://localhost:3000/item
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjUsInVzZXJuYW1lIjoibnVzdWFyaW8iLCJ1c2VyTGV2ZWwiOjEsImV4cCI6MTY5ODY5MTA1MTIwMiwiaWF0IjoxNjk4NjkwODExfQ.bKC0SdqRSugdqPUZGrEI612ZnshaLLjz5bJ--6NU-zU
 
 {
-    "id_product": 2,
-    "qty": 2,
-    "id_cart": 6
+    "id_product": 1,
+    "qty": 4
 }
 
 ### Editar Item de Carrito
@@ -147,7 +147,7 @@ Content-Type: application/json
 }
 
 ### Eliminar Item de Carrito
-DELETE http://localhost:3000/item/2
+DELETE http://localhost:3000/item/4
 Content-Type: application/json
 
 /////////////////////////////////////////////////////////////////////
@@ -170,7 +170,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsInVzZXJuY
     "description": "HDMI/VGA, HDMI HUBs, HDMI/Display"
 }
 
-### PATCH Product Category
+### PATCH Product Category // Requiere Proveedor
 PATCH http://localhost:3000/categories/1
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsInVzZXJuYW1lIjoiUHJvdmVlZG9yUGVyZXoiLCJ1c2VyTGV2ZWwiOjIsImV4cCI6MTY5ODYxOTE5NDg4NSwiaWF0IjoxNjk4NjE4OTU0fQ.UoWWpzHNv6yekiWEs-K2mss_Kkr0TGukE3-HeqE2CmQ
@@ -179,7 +179,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsInVzZXJuY
     "category": "Cables/Extensiones"
 }
 
-### DELETE Product Category
+### DELETE Product Category // Requiere Administrador
 DELETE http://localhost:3000/categories/2
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoibnJvc2FsZXMiLCJ1c2VyTGV2ZWwiOjMsImV4cCI6MTY5ODYxOTMwMzc4NSwiaWF0IjoxNjk4NjE5MDYzfQ.YEX4em0wRJbwBSJmy65w9AwFytlLPyJIaMaPfS1ReA4
@@ -194,7 +194,7 @@ GET http://localhost:3000/proveedores/
 ### GET Provider por ID
 GET http://localhost:3000/proveedores/1
 
-### POST Provider
+### POST Provider // Requiere Administrador
 POST http://localhost:3000/proveedores
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoibnJvc2FsZXMiLCJ1c2VyTGV2ZWwiOjMsImV4cCI6MTY5ODYyMjg5Nzg0MywiaWF0IjoxNjk4NjIyNjU3fQ.XSLkNZXtILNH8HlEKUqUaMhjZli2xLvdpPIauSLKxto
@@ -204,7 +204,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuY
     "cuit": 30374431208
 }
 
-### PATCH Provider
+### PATCH Provider // Requiere Administrador
 PATCH http://localhost:3000/proveedores/1
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoibnJvc2FsZXMiLCJ1c2VyTGV2ZWwiOjMsImV4cCI6MTY5ODYyMzM2MzQzNywiaWF0IjoxNjk4NjIzMTIzfQ.W0vWiIw9JfIXk3KqtWQc02DDSykDkT5dF6tnpIP1LHo
@@ -213,7 +213,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuY
     "id_user": 3
 }
 
-### DELETE Provider
+### DELETE Provider // Requiere Administrador
 DELETE http://localhost:3000/proveedores/2
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoibnJvc2FsZXMiLCJ1c2VyTGV2ZWwiOjMsImV4cCI6MTY5ODYyMjg5Nzg0MywiaWF0IjoxNjk4NjIyNjU3fQ.XSLkNZXtILNH8HlEKUqUaMhjZli2xLvdpPIauSLKxto
@@ -228,16 +228,16 @@ GET http://localhost:3000/ventas
 ### GET Sale by ID
 GET http://localhost:3000/ventas/3
 
-### POST Sale
+### POST Sale // Requiere Usuario
 POST http://localhost:3000/ventas
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsInVzZXJuYW1lIjoicHBhc2NhbCIsInVzZXJMZXZlbCI6MSwiZXhwIjoxNjk4NjQwMzc0NzU3LCJpYXQiOjE2OTg2NDAxMzR9.J6yzA9NDgB3EkBKUZwu5Ww7TrFbBtz9mMVnnx_aBBpM
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsInVzZXJuYW1lIjoicHBhc2NhbCIsInVzZXJMZXZlbCI6MSwiZXhwIjoxNjk4NjQzMzM2NTk3LCJpYXQiOjE2OTg2NDMwOTZ9.aUcbX5BQn5VFY74zC6rEsvSQ10dWpOB2lzz2vtx0jq4
 
 {
-    "id_cart": 6
+    "id_cart": 1
 }
 
-### DELETE Sale
+### DELETE Sale // Requiere Administrador
 DELETE http://localhost:3000/ventas/2
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoibnJvc2FsZXMiLCJ1c2VyTGV2ZWwiOjMsImV4cCI6MTY5ODY0MDAxNTc3MywiaWF0IjoxNjk4NjM5Nzc1fQ.i-LQ1LxL_t5tO8ReXcfMOfAvS4ApZCWaLESNbV0loww

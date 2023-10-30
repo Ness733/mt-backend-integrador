@@ -1,6 +1,6 @@
 // import CartItem from "../models/cart_item.js";
 // import Products from "../models/product.js";
-import { CartItem, Products } from "../models/index.js";
+import { CartItem, Products, Cart } from "../models/index.js";
 
 // Get Requests ///////////////////////////////////////////
 export async function getAllCartItems(req, res) {
@@ -29,8 +29,27 @@ export async function getOneCartItem(req, res) {
 
 // Post requests ////////////////////////////////////////
 export async function saveCartItem(req, res) {
+	// Se busca el carrito del usuario haciendo la request
+	const cartId = await Cart.findAll({
+		where: { id_user: req.user },
+	});
+
+	// Si no existe el carrito, se crea con el ID del usuario
+	if (cartId.length === 0) {
+		let newCart = new Cart({
+			id_user: req.user,
+		});
+		await newCart.save();
+		// Se ejecuta la función otra vez
+		saveCartItem();
+	}
+
 	try {
+		console.log(cartId[0].id);
 		const newCartItem = new CartItem(req.body);
+		// Agrega el id del carrito al body de la request
+		newCartItem.id_cart = cartId[0].id;
+
 		await newCartItem.save();
 
 		res.status(201).json({
