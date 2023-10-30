@@ -1,4 +1,4 @@
-### POST Validación JWT
+### POST Validación JWT Proveedor
 POST http://localhost:3000/auth/
 Content-Type: application/json
 
@@ -7,13 +7,22 @@ Content-Type: application/json
     "password": "rperez24"
 }
 
-### POST Validación JWT
+### POST Validación JWT Administrador
 POST http://localhost:3000/auth/
 Content-Type: application/json
 
 {
     "username": "nrosales",
     "password": "nrosales90"
+}
+
+### POST Validación JWT Usuario
+POST http://localhost:3000/auth/
+Content-Type: application/json
+
+{
+    "username": "ppascal",
+    "password": "ppascal18"
 }
 
 /////////////////////////////////////////////////////////////////////
@@ -208,3 +217,27 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuY
 DELETE http://localhost:3000/proveedores/2
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoibnJvc2FsZXMiLCJ1c2VyTGV2ZWwiOjMsImV4cCI6MTY5ODYyMjg5Nzg0MywiaWF0IjoxNjk4NjIyNjU3fQ.XSLkNZXtILNH8HlEKUqUaMhjZli2xLvdpPIauSLKxto
+
+/////////////////////////////////////////////////////////////////////
+
+### Sales Controller
+
+### GET Sales
+GET http://localhost:3000/ventas
+
+### GET Sale by ID
+GET http://localhost:3000/ventas/3
+
+### POST Sale
+POST http://localhost:3000/ventas
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsInVzZXJuYW1lIjoicHBhc2NhbCIsInVzZXJMZXZlbCI6MSwiZXhwIjoxNjk4NjQwMzc0NzU3LCJpYXQiOjE2OTg2NDAxMzR9.J6yzA9NDgB3EkBKUZwu5Ww7TrFbBtz9mMVnnx_aBBpM
+
+{
+    "id_cart": 6
+}
+
+### DELETE Sale
+DELETE http://localhost:3000/ventas/2
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoibnJvc2FsZXMiLCJ1c2VyTGV2ZWwiOjMsImV4cCI6MTY5ODY0MDAxNTc3MywiaWF0IjoxNjk4NjM5Nzc1fQ.i-LQ1LxL_t5tO8ReXcfMOfAvS4ApZCWaLESNbV0loww

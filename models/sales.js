@@ -4,12 +4,13 @@ import { DataTypes } from "sequelize";
 const Sales = db.define(
 	"sales",
 	{
-		date: { type: DataTypes.DATE },
+		created_at: { type: DataTypes.DATE },
 		id_cart: { type: DataTypes.INTEGER },
 	},
 	{
 		tableName: "sales",
 		timestamps: false,
+		createdAt: true,
 	}
 );
 
