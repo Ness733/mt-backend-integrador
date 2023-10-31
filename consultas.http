@@ -31,6 +31,9 @@ Content-Type: application/json
 ### GET Users
 GET http://localhost:3000/usuarios/
 
+### GET Users por ID
+GET http://localhost:3000/usuarios/2
+
 ### PATCH Editar usuario
 PATCH http://localhost:3000/usuarios/2
 Content-Type: application/json
