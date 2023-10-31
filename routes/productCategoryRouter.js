@@ -11,20 +11,20 @@ import {
 	deleteProductCategory,
 } from "../controllers/productCategoryController.js";
 
-categoriesRouter.get("/categories", getAllProductCategories);
-categoriesRouter.get("/categories/:id", getOneProductCategories);
+categoriesRouter.get("/categorias", getAllProductCategories);
+categoriesRouter.get("/categorias/:id", getOneProductCategories);
 categoriesRouter.post(
-	"/categories/",
+	"/categorias/",
 	autenticacionDeToken,
 	saveProductCategory
 );
 categoriesRouter.patch(
-	"/categories/:id",
+	"/categorias/:id",
 	autenticacionDeToken,
 	editProductCategory
 );
 categoriesRouter.delete(
-	"/categories/:id",
+	"/categorias/:id",
 	autenticacionDeToken,
 	deleteProductCategory
 );
