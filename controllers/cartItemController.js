@@ -17,9 +17,15 @@ export async function getAllCartItems(req, res) {
 export async function getOneCartItem(req, res) {
 	try {
 		let cartItemId = parseInt(req.params.id);
-		let cartItemFound = await CartItem.findAll({
-			where: { id: cartItemId },
+		let cartItemFound = await CartItem.findByPk(cartItemId, {
+			include: [Products],
 		});
+
+		let itemsTotal =
+			cartItemFound.dataValues.qty *
+			cartItemFound.dataValues.product.dataValues.price_public;
+
+		cartItemFound.dataValues.totalItems = itemsTotal;
 
 		return res.status(200).json(cartItemFound);
 	} catch (error) {
