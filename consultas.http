@@ -111,7 +111,7 @@ GET http://localhost:3000/carro/
 ### Obtener carrito por ID
 GET http://localhost:3000/carro/6
 
-### Post Nuevo Carrito
+### Post Nuevo Carrito // Requiere Usuario
 POST http://localhost:3000/carro
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsInVzZXJuYW1lIjoicHBhc2NhbCIsInVzZXJMZXZlbCI6MSwiZXhwIjoxNjk4MzQxNjA1NDkyLCJpYXQiOjE2OTgzNDEzNjV9.h4WF8xhP7zrWxdlyFOzL2j3m9d5sk7m7zs42OM29cso
@@ -158,15 +158,15 @@ Content-Type: application/json
 ### Product Category Controller
 
 ### GET Product Categories
-GET http://localhost:3000/categories/
+GET http://localhost:3000/categorias/
 
 ### GET Product Category por ID
-GET http://localhost:3000/categories/1
+GET http://localhost:3000/categorias/1
 
-### POST Product Category
-POST http://localhost:3000/categories/
+### POST Product Category // Requiere Proveedor
+POST http://localhost:3000/categorias/
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsInVzZXJuYW1lIjoiUHJvdmVlZG9yUGVyZXoiLCJ1c2VyTGV2ZWwiOjIsImV4cCI6MTY5ODYxODg2MTU4MywiaWF0IjoxNjk4NjE4NjIxfQ.6UBEhKTGxbj2YG_UwhHr5qwBNHhbg10QCpKPJTiFkLQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsInVzZXJuYW1lIjoiUHJvdmVlZG9yUGVyZXoiLCJ1c2VyTGV2ZWwiOjIsImV4cCI6MTY5ODc4ODc2NjU3NiwiaWF0IjoxNjk4Nzg4NTI2fQ.HLDsHXEalgIRZb4sz6Q-1fBqP0z2l6HkRFcmauqedEw
 
 {
     "category": "Adaptadores HDMI",
@@ -174,7 +174,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsInVzZXJuY
 }
 
 ### PATCH Product Category // Requiere Proveedor
-PATCH http://localhost:3000/categories/1
+PATCH http://localhost:3000/categorias/1
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsInVzZXJuYW1lIjoiUHJvdmVlZG9yUGVyZXoiLCJ1c2VyTGV2ZWwiOjIsImV4cCI6MTY5ODYxOTE5NDg4NSwiaWF0IjoxNjk4NjE4OTU0fQ.UoWWpzHNv6yekiWEs-K2mss_Kkr0TGukE3-HeqE2CmQ
 
@@ -183,7 +183,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsInVzZXJuY
 }
 
 ### DELETE Product Category // Requiere Administrador
-DELETE http://localhost:3000/categories/2
+DELETE http://localhost:3000/categorias/2
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoibnJvc2FsZXMiLCJ1c2VyTGV2ZWwiOjMsImV4cCI6MTY5ODYxOTMwMzc4NSwiaWF0IjoxNjk4NjE5MDYzfQ.YEX4em0wRJbwBSJmy65w9AwFytlLPyJIaMaPfS1ReA4
 
