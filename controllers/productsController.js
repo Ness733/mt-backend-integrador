@@ -1,11 +1,11 @@
-// import Product from "../models/product.js";
-// import ProductCategory from "../models/product_category.js";
-import { Products } from "../models/index.js";
+import { ProductCategory, Products } from "../models/index.js";
 
 // Get Requests ///////////////////////////////////////////
 export async function getAllProducts(req, res) {
 	try {
-		let allProducts = await Products.findAll();
+		let allProducts = await Products.findAll({
+			include: [ProductCategory],
+		});
 
 		res.status(200).json(allProducts);
 	} catch (error) {
@@ -16,7 +16,9 @@ export async function getAllProducts(req, res) {
 export async function getOneProduct(req, res) {
 	try {
 		let productId = parseInt(req.params.id);
-		let productFound = await Products.findByPk(productId);
+		let productFound = await Products.findByPk(productId, {
+			include: [ProductCategory],
+		});
 
 		res.status(200).json(productFound);
 	} catch (error) {

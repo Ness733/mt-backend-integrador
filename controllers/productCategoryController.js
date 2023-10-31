@@ -26,10 +26,9 @@ export async function getOneProductCategories(req, res) {
 // Post Requests //////////////////////////////////////////
 export async function saveProductCategory(req, res) {
 	if (req.userLevel !== 2) {
-		res.status(401).json({
+		return res.status(401).json({
 			message: "Se requieren permisos de proveedor.",
 		});
-		return;
 	}
 
 	try {
