@@ -1,19 +1,24 @@
 import { Cart, CartItem, Users, Products } from "../models/index.js";
 
 // Get Requests ///////////////////////////////////////////
-export async function getAllCarts(req, res) {
-	// let getProducts = await CartItem.findAll();
 
+// Funcion que calcula el costo total de cada carrito.
+const calculateTotal = (cart) => {
+	let total = 0;
+	cart.cart_items.forEach((cartItem) => {
+		const itemCost = cartItem.qty * cartItem.product.price_public;
+		total += itemCost;
+	});
+	cart.dataValues.cartTotal = total;
+};
+
+export async function getAllCarts(req, res) {
 	try {
 		let allCarts = await Cart.findAll({
 			include: [
 				{
 					model: CartItem,
-					include: [
-						{
-							model: Products,
-						},
-					],
+					include: [Products],
 				},
 				{
 					model: Users,
@@ -21,6 +26,11 @@ export async function getAllCarts(req, res) {
 				},
 			],
 		});
+
+		allCarts.forEach((cart) => {
+			calculateTotal(cart);
+		});
+
 		res.status(200).json(allCarts);
 	} catch (error) {
 		res.status(204).json({ message: error });
@@ -46,6 +56,10 @@ export async function getOneCart(req, res) {
 					attributes: ["username", "email"],
 				},
 			],
+		});
+
+		cartFound.forEach((cart) => {
+			calculateTotal(cart);
 		});
 
 		res.status(200).json(cartFound);
