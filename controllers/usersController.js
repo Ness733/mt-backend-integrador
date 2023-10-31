@@ -1,10 +1,24 @@
 // import User from "../models/user.js";
-import { Users } from "../models/index.js";
+import { Users, UserCategory } from "../models/index.js";
 
 // Get Requests ////////////////////////////////////////////
 export async function getAllUsers(req, res) {
 	try {
-		let allUsers = await Users.findAll();
+		let allUsers = await Users.findAll({
+			attributes: [
+				"id",
+				"first_name",
+				"last_name",
+				"username",
+				"email",
+				"id_user_cat",
+			],
+			include: [
+				{
+					model: UserCategory,
+				},
+			],
+		});
 
 		res.status(200).json(allUsers);
 	} catch (error) {
@@ -15,9 +29,11 @@ export async function getAllUsers(req, res) {
 export async function getOneUser(req, res) {
 	try {
 		let userId = parseInt(req.params.id);
-		let userFound = await Users.findByPk(userId);
+		let userFound = await Users.findByPk(userId, {
+			attributes: ["id", "first_name", "last_name", "username", "email"],
+		});
 
-		req.status(200).json(userFound);
+		res.status(200).json(userFound);
 	} catch (error) {
 		res.status(204).json({ message: error });
 	}

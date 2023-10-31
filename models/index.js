@@ -4,6 +4,7 @@ import Users from "./user.js";
 import Products from "./product.js";
 import ProductCategory from "./product_category.js";
 import Sales from "./sales.js";
+import UserCategory from "./user_category.js";
 
 // Cart
 Cart.hasMany(CartItem, { foreignKey: "id_cart" });
@@ -23,6 +24,18 @@ Cart.belongsTo(Users, { foreignKey: "id_user" });
 ProductCategory.hasMany(Products, { foreignKey: "id_product_cat" });
 Products.belongsTo(ProductCategory, { foreignKey: "id_product_cat" });
 
+// User Category
+UserCategory.hasMany(Users, { foreignKey: "id_user_cat" });
+Users.belongsTo(UserCategory, { foreignKey: "id_user_cat" });
+
 // Sales
 
-export { Cart, CartItem, Users, Products, ProductCategory, Sales };
+export {
+	Cart,
+	CartItem,
+	Users,
+	Products,
+	ProductCategory,
+	Sales,
+	UserCategory,
+};
