@@ -21,6 +21,15 @@ POST http://localhost:3000/auth/
 Content-Type: application/json
 
 {
+    "username": "ppascal",
+    "password": "ppascal18"
+}
+
+### POST Validación JWT Usuario
+POST http://localhost:3000/auth/
+Content-Type: application/json
+
+{
     "username": "nusuario",
     "password": "nusuario90"
 }
@@ -134,19 +143,20 @@ GET http://localhost:3000/item/1
 ### Post Nuevo Item de Carrito // Requiere Usuario
 POST http://localhost:3000/item
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjUsInVzZXJuYW1lIjoibnVzdWFyaW8iLCJ1c2VyTGV2ZWwiOjEsImV4cCI6MTY5ODY5MTA1MTIwMiwiaWF0IjoxNjk4NjkwODExfQ.bKC0SdqRSugdqPUZGrEI612ZnshaLLjz5bJ--6NU-zU
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjUsInVzZXJuYW1lIjoibnVzdWFyaW8iLCJ1c2VyTGV2ZWwiOjEsImV4cCI6MTY5ODgwMjQwNzE2NCwiaWF0IjoxNjk4ODAyMTY3fQ.QoG2lBBMAdxHOuyd-aDfQuGslQwXYVpKFsllmWdPjwg
 
 {
-    "id_product": 1,
+    "id_product": 2,
     "qty": 4
 }
 
 ### Editar Item de Carrito
-PATCH http://localhost:3000/item/1
+PATCH http://localhost:3000/item/3
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsInVzZXJuYW1lIjoicHBhc2NhbCIsInVzZXJMZXZlbCI6MSwiZXhwIjoxNjk4ODAyNzYyODI5LCJpYXQiOjE2OTg4MDI1MjJ9.u8yr18bioy9m5vIM3s4Avo1GozmXaF-7u-dmlqe5heI
 
 {
-    "qty": 5
+    "qty": 10
 }
 
 ### Eliminar Item de Carrito
@@ -229,18 +239,18 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuY
 GET http://localhost:3000/ventas
 
 ### GET Sale by ID
-GET http://localhost:3000/ventas/3
+GET http://localhost:3000/ventas/10
 
 ### POST Sale // Requiere Usuario
 POST http://localhost:3000/ventas
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsInVzZXJuYW1lIjoicHBhc2NhbCIsInVzZXJMZXZlbCI6MSwiZXhwIjoxNjk4NjQzMzM2NTk3LCJpYXQiOjE2OTg2NDMwOTZ9.aUcbX5BQn5VFY74zC6rEsvSQ10dWpOB2lzz2vtx0jq4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjUsInVzZXJuYW1lIjoibnVzdWFyaW8iLCJ1c2VyTGV2ZWwiOjEsImV4cCI6MTY5ODc5ODc1OTM2NSwiaWF0IjoxNjk4Nzk4NTE5fQ.LED8OBTCD_8GTuHY4yC3W5DEQ1yps5pgUWwFB0tvqBo
 
 {
-    "id_cart": 1
+    "id_cart": 6
 }
 
 ### DELETE Sale // Requiere Administrador
-DELETE http://localhost:3000/ventas/2
+DELETE http://localhost:3000/ventas/13
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoibnJvc2FsZXMiLCJ1c2VyTGV2ZWwiOjMsImV4cCI6MTY5ODY0MDAxNTc3MywiaWF0IjoxNjk4NjM5Nzc1fQ.i-LQ1LxL_t5tO8ReXcfMOfAvS4ApZCWaLESNbV0loww
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoibnJvc2FsZXMiLCJ1c2VyTGV2ZWwiOjMsImV4cCI6MTY5ODc5ODAxNjYzOSwiaWF0IjoxNjk4Nzk3Nzc2fQ.khhtoH--iOsljXVPayn1eyd5ULqweSgjceIcufWU1us
