@@ -11,6 +11,7 @@ const db = new Sequelize(
 	{
 		host: "motty.db.elephantsql.com",
 		dialect: "postgres",
+		timezone: "-06:00",
 		logging: true,
 	}
 );
