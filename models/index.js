@@ -31,6 +31,7 @@ Products.belongsTo(ProductCategory, { foreignKey: "id_product_cat" });
 UserCategory.hasMany(Users, { foreignKey: "id_user_cat" });
 Users.belongsTo(UserCategory, { foreignKey: "id_user_cat" });
 
+// Provider
 Provider.hasMany(Products, { foreignKey: "id_provider" });
 Products.belongsTo(Provider, { foreignKey: "id_provider" });
 
