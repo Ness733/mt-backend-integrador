@@ -56,19 +56,15 @@ export async function getOneSale(req, res) {
 			include: [
 				{
 					model: Cart,
-					attributes: ["id", "id_user"],
+					attributes: ["id_user"],
 					include: [
 						{
 							model: CartItem,
-							attributes: ["id", "qty", "id_product"],
+							attributes: ["qty"],
 							include: [
 								{
 									model: Products,
-									attributes: [
-										"id",
-										"description",
-										"price_public",
-									],
+									attributes: ["description", "price_public"],
 								},
 							],
 						},
