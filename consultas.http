@@ -239,7 +239,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuY
 GET http://localhost:3000/ventas
 
 ### GET Sale by ID
-GET http://localhost:3000/ventas/10
+GET http://localhost:3000/ventas/22
 
 ### POST Sale // Requiere Usuario
 POST http://localhost:3000/ventas
