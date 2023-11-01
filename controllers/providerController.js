@@ -1,9 +1,10 @@
 import Provider from "../models/provider.js";
+import { Users } from "../models/index.js";
 
 // Get Requests ///////////////////////////////////////////
 export async function getAllProviders(req, res) {
 	try {
-		let allProviders = await Provider.findAll();
+		let allProviders = await Provider.findAll({ include: [Users] });
 		res.status(200).json(allProviders);
 	} catch (error) {
 		res.status(204).json({ message: error });
@@ -13,7 +14,9 @@ export async function getAllProviders(req, res) {
 export async function getOneProvider(req, res) {
 	try {
 		let providerId = parseInt(req.params.id);
-		let providerFound = await Provider.findByPk(providerId);
+		let providerFound = await Provider.findByPk(providerId, {
+			include: [Users],
+		});
 
 		res.status(200).json(providerFound);
 	} catch (error) {
