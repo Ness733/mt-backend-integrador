@@ -244,13 +244,13 @@ GET http://localhost:3000/ventas/10
 ### POST Sale // Requiere Usuario
 POST http://localhost:3000/ventas
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjUsInVzZXJuYW1lIjoibnVzdWFyaW8iLCJ1c2VyTGV2ZWwiOjEsImV4cCI6MTY5ODc5ODc1OTM2NSwiaWF0IjoxNjk4Nzk4NTE5fQ.LED8OBTCD_8GTuHY4yC3W5DEQ1yps5pgUWwFB0tvqBo
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsInVzZXJuYW1lIjoicHBhc2NhbCIsInVzZXJMZXZlbCI6MSwiZXhwIjoxNjk4ODA2Mzg1NDAxLCJpYXQiOjE2OTg4MDYxNDV9.C0OlmDlwCdhHAqnOwl3FbqyQZPKzF5iGMqYIU0-sleE
 
 {
     "id_cart": 6
 }
 
 ### DELETE Sale // Requiere Administrador
-DELETE http://localhost:3000/ventas/13
+DELETE http://localhost:3000/ventas/21
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoibnJvc2FsZXMiLCJ1c2VyTGV2ZWwiOjMsImV4cCI6MTY5ODc5ODAxNjYzOSwiaWF0IjoxNjk4Nzk3Nzc2fQ.khhtoH--iOsljXVPayn1eyd5ULqweSgjceIcufWU1us
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoibnJvc2FsZXMiLCJ1c2VyTGV2ZWwiOjMsImV4cCI6MTY5ODgwNjM1MzU5MSwiaWF0IjoxNjk4ODA2MTEzfQ.mvlxI0BS7tXWOcwqlmiEsOUIXCQsN-aLc3raEPkarW0
