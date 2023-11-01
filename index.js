@@ -41,9 +41,7 @@ app.use((req, res) => {
 });
 
 try {
-	await db.authenticate().then(() => {
-		return db.query("SET TIME ZONE 'GMT-3';", { raw: true });
-	});
+	await db.authenticate();
 	console.log("Conexión establecida");
 } catch (error) {
 	console.log("Algo salió mal" + error);
