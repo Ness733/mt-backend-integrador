@@ -14,7 +14,7 @@ import {
 cartItemRouter.get("/item", getAllCartItems);
 cartItemRouter.get("/item/:id", getOneCartItem);
 cartItemRouter.post("/item", autenticacionDeToken, saveCartItem);
-cartItemRouter.patch("/item/:id", editCartItem);
+cartItemRouter.patch("/item/:id", autenticacionDeToken, editCartItem);
 cartItemRouter.delete("/item/:id", deleteCartItem);
 
 export default cartItemRouter;
