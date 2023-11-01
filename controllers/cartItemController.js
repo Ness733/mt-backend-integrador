@@ -1,6 +1,6 @@
 // import CartItem from "../models/cart_item.js";
 // import Products from "../models/product.js";
-import { CartItem, Products, Cart } from "../models/index.js";
+import { CartItem, Products, Cart, Users } from "../models/index.js";
 
 // Get Requests ///////////////////////////////////////////
 export async function getAllCartItems(req, res) {
@@ -68,9 +68,18 @@ export async function saveCartItem(req, res) {
 
 export async function editCartItem(req, res) {
 	let cartItemId = parseInt(req.params.id);
+	const { id: idUser } = await Users.findByPk(req.user);
+	let cartUserId = await Cart.findAll({ where: { id_user: idUser } });
+
 	try {
 		let cartUpdate = await CartItem.findByPk(cartItemId);
 		let cartItemIdProduct = await Products.findByPk(cartUpdate.id_product);
+
+		if (cartUpdate.id_cart !== cartUserId[0].dataValues.id) {
+			return res.status(401).json({
+				message: "No tiene permisos para realizar esta accion.",
+			});
+		}
 		if (!cartUpdate) {
 			return res.status(204).json({ message: "El item no existe." });
 		}
