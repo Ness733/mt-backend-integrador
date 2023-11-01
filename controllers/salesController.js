@@ -1,9 +1,47 @@
 import { Sales, Cart, CartItem, Products } from "../models/index.js";
 
 // Get Requests ////////////////////////////
+
+const calculateSaleTotal = (sale) => {
+	let total = 0;
+	sale.cart.cart_items.forEach((cartItem) => {
+		const itemCost = cartItem.qty * cartItem.product.price_public;
+		total += itemCost;
+	});
+	sale.dataValues.saleValue = total;
+};
+
 export async function getAllSales(req, res) {
 	try {
-		let allSales = await Sales.findAll();
+		let allSales = await Sales.findAll({
+			include: [
+				{
+					model: Cart,
+					attributes: ["id", "id_user"],
+					include: [
+						{
+							model: CartItem,
+							attributes: ["id", "qty", "id_product"],
+							include: [
+								{
+									model: Products,
+									attributes: [
+										"id",
+										"description",
+										"price_public",
+									],
+								},
+							],
+						},
+					],
+				},
+			],
+		});
+
+		allSales.forEach((sale) => {
+			calculateSaleTotal(sale);
+		});
+
 		res.status(200).json(allSales);
 	} catch (error) {
 		res.status(204).json({ message: error });
@@ -37,6 +75,10 @@ export async function getOneSale(req, res) {
 					],
 				},
 			],
+		});
+
+		saleFound.forEach((sale) => {
+			calculateSaleTotal(sale);
 		});
 
 		res.status(200).json(saleFound);

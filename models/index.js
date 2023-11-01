@@ -5,6 +5,7 @@ import Products from "./product.js";
 import ProductCategory from "./product_category.js";
 import Sales from "./sales.js";
 import UserCategory from "./user_category.js";
+import Provider from "./provider.js";
 
 // Cart
 Cart.hasMany(CartItem, { foreignKey: "id_cart" });
@@ -19,6 +20,8 @@ Products.hasMany(CartItem, { foreignKey: "id_product" });
 // Users
 Users.hasMany(Cart, { foreignKey: "id_user" });
 Cart.belongsTo(Users, { foreignKey: "id_user" });
+Users.hasOne(Provider, { foreignKey: "id_user" });
+Provider.belongsTo(Users, { foreignKey: "id_user" });
 
 // Products Category
 ProductCategory.hasMany(Products, { foreignKey: "id_product_cat" });
@@ -27,6 +30,9 @@ Products.belongsTo(ProductCategory, { foreignKey: "id_product_cat" });
 // User Category
 UserCategory.hasMany(Users, { foreignKey: "id_user_cat" });
 Users.belongsTo(UserCategory, { foreignKey: "id_user_cat" });
+
+Provider.hasMany(Products, { foreignKey: "id_provider" });
+Products.belongsTo(Provider, { foreignKey: "id_provider" });
 
 // Sales
 
