@@ -13,6 +13,7 @@ import cartItemRouter from "./routes/cartItemRouter.js";
 import categoriesRouter from "./routes/productCategoryRouter.js";
 import providerRouter from "./routes/providerRouter.js";
 import salesRouter from "./routes/salesRouter.js";
+import usersCategoryRouter from "./routes/usersCategoryRouter.js";
 
 const app = express();
 const exposedPort = 3000;
@@ -32,6 +33,7 @@ app.use("/", cartItemRouter);
 app.use("/", categoriesRouter);
 app.use("/", providerRouter);
 app.use("/", salesRouter);
+app.use("/", usersCategoryRouter);
 
 // Endpoint validación logueo
 app.post("/auth", authentication);
