@@ -254,3 +254,25 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsInVzZXJuY
 DELETE http://localhost:3000/ventas/21
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoibnJvc2FsZXMiLCJ1c2VyTGV2ZWwiOjMsImV4cCI6MTY5ODgwNjM1MzU5MSwiaWF0IjoxNjk4ODA2MTEzfQ.mvlxI0BS7tXWOcwqlmiEsOUIXCQsN-aLc3raEPkarW0
+
+/////////////////////////////////////////////////////////////////////
+
+### GET Categoria Usuarios
+GET http://localhost:3000/categorias_usuario
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsInVzZXJuYW1lIjoicHBhc2NhbCIsInVzZXJMZXZlbCI6MSwiZXhwIjoxNjk4OTYxNTUzMzgyLCJpYXQiOjE2OTg5NjEzMTN9.3nQZgjGnYwkyRgtEwwc7Hi3VK7-QQoN994LzgHNJxAc
+
+### POST Categoria Usuarios
+POST http://localhost:3000/categorias_usuario
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoibnJvc2FsZXMiLCJ1c2VyTGV2ZWwiOjMsImV4cCI6MTY5ODk2MTYxNjkyMCwiaWF0IjoxNjk4OTYxMzc2fQ.8YOkqyMy2TfOphr3YaizqdWtWK2G9CCDtnFsKSdEIOE
+
+{
+    "category": "Moderador",
+    "description": "Modera"
+}
+
+### DELETE Categoria Usuarios
+DELETE http://localhost:3000/categorias_usuario/6
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoibnJvc2FsZXMiLCJ1c2VyTGV2ZWwiOjMsImV4cCI6MTY5ODk2NTEzNDg5MSwiaWF0IjoxNjk4OTY0ODk0fQ.H6vlKSsvpCac1nss6NrBhaVHhwnQ-CNhgE3uKLyxRSM
